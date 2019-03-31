@@ -177,5 +177,4 @@ int main()
 	delete ar;
 	system("pause");
 	return 0;
-
 }
