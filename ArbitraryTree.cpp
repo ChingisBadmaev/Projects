@@ -131,6 +131,28 @@ void new_root(ANode<T>*& r, T d)
     r = new ANode<T>(d, r, nullptr);
 }
 
+/*procedure removes the first son of the root
+his sons, if any, become sons
+root in front of the former second root son*/
+template<class T>
+void delete_first_son(ANode<T>*& r)
+{
+    if (r == nullptr)
+    {
+        return;
+    }
+    ANode<T>* temp = r->down->down;
+    ANode<T>* new_first_son = r->down->right;
+    while (temp->right != nullptr)
+    {
+        temp = temp->right;
+    }
+    temp->right = r->down->right->down;
+    new_first_son->down = r->down->down;
+    delete r->down;
+    r->down = new_first_son; 
+}
+
 int main()
 {
     int arr[4] = {100, 1, 3, 8 };
@@ -146,8 +168,11 @@ int main()
                 new ANode<int>(4,
                     new ANode<int>(9,
                         nullptr,
-                        new ANode<int>(10))))));
-    new_root(tree, 100);
-    cout << data_descent(tree, arr, 4)->data;
+                        new ANode<int>(10))))));  
+    //new_root(tree, 100);
+    cout << tree->down->data << endl;
+    delete_first_son(tree);
+    //data_descent(tree, arr, 4)->data;
+    cout << tree->down->down->data << endl;
     return 0;
 }
