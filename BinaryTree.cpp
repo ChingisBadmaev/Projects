@@ -80,7 +80,7 @@ int number_of_grandson(BNode<T>* r)
 
 /*alternately moving left and right*/
 template<class T>
-void root_update(BNode<T>* r)
+void root_update(BNode<T>*& r)
 {
 	if (r == nullptr)
 	{
@@ -99,7 +99,7 @@ void root_update(BNode<T>* r)
 the old left son of the root becomes the left son of the new node
 the new son will not have the right son*/
 template<class T>
-void new_root1(BNode<T>* r, T d)
+void new_root1(BNode<T>*& r, T d)
 {
 	if (r == nullptr)
 	{
@@ -115,7 +115,7 @@ void new_root1(BNode<T>* r, T d)
 /*the new node becomes left the son of the root
 the old sons of the root become the sons of the new knot*/
 template<class T>
-void new_root2(BNode<T>* r, T d)
+void new_root2(BNode<T>*& r, T d)
 {
 	if (r == nullptr)
 	{
@@ -131,7 +131,7 @@ void new_root2(BNode<T>* r, T d)
 
 /*swap of root and left son*/
 template<class T>
-void swap_root_left(BNode<T>* r)
+void swap_root_left(BNode<T>*& r)
 {
 	if (r == nullptr)
 	{
@@ -151,7 +151,7 @@ void swap_root_left(BNode<T>* r)
 
 /*find the leftmost node*/
 template<class T>
-BNode<T>* leftmost_knot(BNode<T>* r)
+BNode<T>* leftmost_knot(BNode<T>*& r)
 {
 	if (r == nullptr)
 	{
@@ -269,7 +269,7 @@ BNode<T>* second_left_sheet(BNode<T>* r)
 /*delete the leftmost node
  his right son becomes his father's left son*/
 template<class T>
-void delete_rightmost_node(BNode<T>* r)
+void delete_rightmost_node(BNode<T>*& r)
 {
 	if (r == nullptr)
 	{
